@@ -59,7 +59,8 @@ const WorkoutForm = () => {
         onChange={(e) => setLoad(e.target.value)}
         value={load}
       />
-      <button>Add workout</button>
+      <button type="submit">Add workout</button>
+      {error && <div className="error">{error}</div>}
     </form>
   );
 };
