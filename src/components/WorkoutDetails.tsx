@@ -1,6 +1,13 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-const WorkoutDetails = ({ workout }) => {
+import {Workout} from '../types/Workout';
+
+
+interface WorkoutDetailsProps {
+  workout: Workout;
+}
+
+const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
   const { dispatch } = useWorkoutsContext();
   const handleClick = async () => {
     const response = await fetch("/api/workouts/" + workout._id, {
