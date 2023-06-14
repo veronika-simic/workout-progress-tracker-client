@@ -1,6 +1,7 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import {Workout} from '../types/Workout';
+import { Workout } from "../types/workoutState";
+import { ActionType } from "../types/action";
 
 
 interface WorkoutDetailsProps {
@@ -15,7 +16,7 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
     });
     const json = await response.json();
     if (response.ok) {
-      dispatch({ type: "DELETE_WORKOUT", payload: json });
+      dispatch({ type: ActionType.DeleteWorkout, payload: json });
     }
   };
   return (

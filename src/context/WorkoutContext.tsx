@@ -1,18 +1,33 @@
-import { createContext, useReducer } from "react";
+import { ReactNode, createContext, useReducer } from "react";
+import { WorkoutState, initialWorkoutState } from "../types/workoutState";
+import { WorkoutActions, ActionType } from "../types/action";
 
-export const WorkoutsContext = createContext();
 
-export const workoutsReducer = (state, action) => {
+interface Props {
+  children?: ReactNode
+  
+}
+
+
+export const WorkoutsContext = createContext<{
+  state: WorkoutState;
+  dispatch: React.Dispatch<WorkoutActions>;
+}>({ state: initialWorkoutState, dispatch: () => undefined });
+
+export const workoutsReducer = (
+  state: WorkoutState,
+  action: WorkoutActions
+): WorkoutState => {
   switch (action.type) {
-    case "SET_WORKOUTS":
+    case ActionType.SetWorkouts:
       return {
         workouts: action.payload,
       };
-    case "CREATE_WORKOUT":
+    case ActionType.CreateWorkout:
       return {
         workouts: [action.payload, ...state.workouts],
       };
-    case "DELETE_WORKOUT":
+    case ActionType.DeleteWorkout:
       return {
         workouts: state.workouts.filter(
           (workout) => workout._id !== action.payload._id
@@ -24,10 +39,10 @@ export const workoutsReducer = (state, action) => {
   }
 };
 
-export const WorkoutsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(workoutsReducer, { workouts: null });
+export const WorkoutsContextProvider = ({ children } : Props) => {
+  const [state, dispatch] = useReducer(workoutsReducer, initialWorkoutState);
   return (
-    <WorkoutsContext.Provider value={{ ...state, dispatch }}>
+    <WorkoutsContext.Provider value={{ state, dispatch }}>
       {children}
     </WorkoutsContext.Provider>
   );
