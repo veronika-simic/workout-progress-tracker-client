@@ -6,6 +6,7 @@ import { Workout } from "../types/workoutState";
 import { ActionType } from "../types/action";
 const Home = () => {
   const { state, dispatch } = useWorkoutsContext();
+  const workouts = Array.from(state.workouts)
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch("/api/workouts");
@@ -17,13 +18,13 @@ const Home = () => {
     };
 
     fetchWorkouts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">
       <div className="workouts">
-        {state.workouts &&
-          state.workouts.map((workout: Workout) => (
+        {workouts &&
+          workouts.map((workout: Workout) => (
             <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
