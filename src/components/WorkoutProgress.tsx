@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { ActionType } from "../types/action";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -48,19 +51,44 @@ const labels = [
 ];
 
 const WorkoutProgress = () => {
+    const { state, dispatch } = useWorkoutsContext();
+    const workouts = Array.from(state.workouts);
+    const data: Number[] = []
+    
+    useEffect(() => {
+      const fetchWorkouts = async () => {
+        const response = await fetch("/api/workouts");
+        const json = await response.json();
+  
+        if (response.ok) {
+          dispatch({ type: ActionType.SetWorkouts, payload: json });
+        }
+      };
+  
+      fetchWorkouts();
+    }, [dispatch]);
   return (
+    <>
+
+    {workouts && workouts.map((workout) => {
+        if (workout.title === "Chest press") {
+           data.push(workout.load)
+        }
+
+    })}
     <Line
       datasetIdKey="id"
       data={{
         labels: labels,
         datasets: [
           {
-            label: "",
-            data: [5, 6, 7],
+            label: "Chest press",
+            data: data,
           },
         ],
       }}
     />
+    </>
   );
 };
 
