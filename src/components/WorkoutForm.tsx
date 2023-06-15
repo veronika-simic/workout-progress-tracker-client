@@ -9,9 +9,9 @@ const WorkoutForm = () => {
   const [reps, setReps] = useState("");
   const [load, setLoad] = useState("");
   const [error, setError] = useState(null);
-  const [emptyFields, setEmptyFields] = useState([])
+  const [emptyFields, setEmptyFields] = useState([]);
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const workout = { title, sets, reps, load };
 
@@ -26,7 +26,7 @@ const WorkoutForm = () => {
 
     if (!response.ok) {
       setError(json.error);
-      setEmptyFields(json.emptyFields)
+      setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
       setError(null);
@@ -34,7 +34,7 @@ const WorkoutForm = () => {
       setSets("");
       setReps("");
       setLoad("");
-      setEmptyFields([])
+      setEmptyFields([]);
       dispatch({ type: ActionType.SetWorkouts, payload: json });
     }
   };
@@ -42,33 +42,37 @@ const WorkoutForm = () => {
   return (
     <form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
-      <label>Exercise Title:</label>
+      <label htmlFor="title">Exercise Title:</label>
       <input
+        id="title"
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        className={emptyFields.includes('title') ? 'error' : ''}
+        className={emptyFields.includes("title") ? "error" : ""}
       />
-      <label>Sets:</label>
+      <label htmlFor="sets">Sets:</label>
       <input
+        id="sets"
         type="number"
         onChange={(e) => setSets(e.target.value)}
         value={sets}
-        className={emptyFields.includes('sets') ? 'error' : ''}
+        className={emptyFields.includes("sets") ? "error" : ""}
       />
-      <label>Reps:</label>
+      <label htmlFor="reps">Reps:</label>
       <input
-        type="text"
+        id="reps"
+        type="number"
         onChange={(e) => setReps(e.target.value)}
         value={reps}
-        className={emptyFields.includes('reps') ? 'error' : ''}
+        className={emptyFields.includes("reps") ? "error" : ""}
       />
-      <label>Load (in kg):</label>
+      <label htmlFor="load">Load (in kg):</label>
       <input
-        type="text"
+        id="load"
+        type="number"
         onChange={(e) => setLoad(e.target.value)}
         value={load}
-        className={emptyFields.includes('load') ? 'error' : ''}
+        className={emptyFields.includes("load") ? "error" : ""}
       />
       <button type="submit">Add workout</button>
       {error && <div className="error">{error}</div>}
