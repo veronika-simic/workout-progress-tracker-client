@@ -6,6 +6,9 @@ const NavBar = () => {
         <Link to="/">
           <h1>Workout Tracker</h1>
         </Link>
+        <Link to="/progress">
+          <h2>Progress</h2>
+        </Link>
       </div>
     </header>
   );

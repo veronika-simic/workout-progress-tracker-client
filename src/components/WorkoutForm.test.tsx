@@ -3,13 +3,11 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import WorkoutForm from "../components/WorkoutForm";
 import { ActionType } from "../types/action";
 
-
 jest.mock("../hooks/useWorkoutsContext", () => ({
   useWorkoutsContext: jest.fn(),
 }));
 
 test("renders and submits workout form", () => {
- 
   const mockDispatch = jest.fn();
   (useWorkoutsContext as jest.Mock).mockReturnValue({
     dispatch: mockDispatch,
@@ -17,12 +15,16 @@ test("renders and submits workout form", () => {
 
   render(<WorkoutForm />);
 
-  fireEvent.change(screen.getByRole('textbox', { name: /Exercise Title/i }), {
+  fireEvent.change(screen.getByRole("textbox", { name: /Exercise Title/i }), {
     target: { value: "Bench Press" },
   });
-  fireEvent.change(screen.getByRole("spinbutton", {name: /Sets:/i}), { target: { value: "3" } });
-  fireEvent.change(screen.getByRole("spinbutton", {name: /Reps:/i}), { target: { value: "10" } });
-  fireEvent.change(screen.getByRole("spinbutton", {name: /Load (in kg):/i}), {
+  fireEvent.change(screen.getByRole("spinbutton", { name: /Sets:/i }), {
+    target: { value: "3" },
+  });
+  fireEvent.change(screen.getByRole("spinbutton", { name: /Reps:/i }), {
+    target: { value: "10" },
+  });
+  fireEvent.change(screen.getByRole("spinbutton", { name: /Load:/i }), {
     target: { value: "100" },
   });
   fireEvent.click(screen.getByText("Add workout"));

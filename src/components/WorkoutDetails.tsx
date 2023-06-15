@@ -19,11 +19,12 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
       dispatch({ type: ActionType.DeleteWorkout, payload: json });
     }
   };
+
   return (
     <div className="workout-details">
       <h4>{workout.title}</h4>
       <p>
-        <strong>Load (kg): </strong>
+        <strong>Load:</strong>
         {workout.load}
       </p>
       <p>

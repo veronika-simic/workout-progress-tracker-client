@@ -24,6 +24,7 @@
 - Node - version 16.17.0
 - React - version 18.2.0
 - Typescript - version 5.1.3
+- Jest - version 29.5.0
 
 ## Features
 
