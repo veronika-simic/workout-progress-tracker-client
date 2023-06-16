@@ -3,7 +3,7 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { Workout } from "../types/workoutState";
-import { ActionType } from "../types/action";
+import { ActionType } from "../types/workoutAction";
 
 const Home = () => {
   const { state, dispatch } = useWorkoutsContext();

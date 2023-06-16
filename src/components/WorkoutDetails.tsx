@@ -1,7 +1,7 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Workout } from "../types/workoutState";
-import { ActionType } from "../types/action";
+import { ActionType } from "../types/workoutAction";
 
 
 interface WorkoutDetailsProps {

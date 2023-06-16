@@ -1,7 +1,7 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import WorkoutDetails from "./WorkoutDetails";
 import { Workout } from "../types/workoutState";
-import { ActionType } from "../types/action";
+import { ActionType } from "../types/workoutAction";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 jest.mock("../hooks/useWorkoutsContext", () => ({

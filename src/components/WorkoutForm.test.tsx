@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import WorkoutForm from "../components/WorkoutForm";
-import { ActionType } from "../types/action";
+import { ActionType } from "../types/workoutAction";
 
 jest.mock("../hooks/useWorkoutsContext", () => ({
   useWorkoutsContext: jest.fn(),

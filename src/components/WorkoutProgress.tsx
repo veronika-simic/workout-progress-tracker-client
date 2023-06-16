@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { ActionType } from "../types/action";
+import { ActionType } from "../types/workoutAction";
 ChartJS.register(
   CategoryScale,
   LinearScale,

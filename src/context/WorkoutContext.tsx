@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 import { WorkoutState, initialWorkoutState } from "../types/workoutState";
-import { WorkoutActions, ActionType } from "../types/action";
+import { WorkoutActions, ActionType } from "../types/workoutAction";
 interface Props {
   children?: ReactNode
   
