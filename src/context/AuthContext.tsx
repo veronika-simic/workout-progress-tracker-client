@@ -7,9 +7,9 @@ interface Props {
 }
 
 export const AuthContext = createContext<{
-  state: UserState;
+  userState: UserState;
   dispatch: React.Dispatch<AuthActions>;
-}>({ state: initialAuthState, dispatch: () => undefined });
+}>({ userState: initialAuthState, dispatch: () => undefined });
 
 export const authReducer = (
   state: UserState,
@@ -34,7 +34,7 @@ export const authReducer = (
 };
 
 export const AuthContextProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(authReducer, initialAuthState);
+  const [userState, dispatch] = useReducer(authReducer, initialAuthState);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -43,7 +43,7 @@ export const AuthContextProvider = ({ children }: Props) => {
     }
   }, []);
   return (
-    <AuthContext.Provider value={{ state, dispatch }}>
+    <AuthContext.Provider value={{ userState, dispatch }}>
       {children}
     </AuthContext.Provider>
   );

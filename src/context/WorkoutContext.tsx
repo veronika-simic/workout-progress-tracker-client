@@ -7,9 +7,9 @@ interface Props {
 }
 
 export const WorkoutsContext = createContext<{
-  state: WorkoutState;
+  workoutState: WorkoutState;
   dispatch: React.Dispatch<WorkoutActions>;
-}>({ state: initialWorkoutState, dispatch: () => undefined });
+}>({ workoutState: initialWorkoutState, dispatch: () => undefined });
 
 export const workoutsReducer = (
   state: WorkoutState,
@@ -37,9 +37,9 @@ export const workoutsReducer = (
 };
 
 export const WorkoutsContextProvider = ({ children } : Props) => {
-  const [state, dispatch] = useReducer(workoutsReducer, initialWorkoutState);
+  const [workoutState, dispatch] = useReducer(workoutsReducer, initialWorkoutState);
   return (
-    <WorkoutsContext.Provider value={{ state, dispatch }}>
+    <WorkoutsContext.Provider value={{ workoutState, dispatch }}>
       {children}
     </WorkoutsContext.Provider>
   );

@@ -51,8 +51,8 @@ const labels = [
 ];
 
 const WorkoutProgress = () => {
-    const { state, dispatch } = useWorkoutsContext();
-    const workouts = Array.from(state.workouts);
+    const { workoutState, dispatch } = useWorkoutsContext();
+    const workouts = Array.from(workoutState.workouts);
     const data: Number[] = []
     
     useEffect(() => {
