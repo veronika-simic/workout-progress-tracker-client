@@ -17,7 +17,7 @@
 ## General Information
 
 - Workout progress tracker application that allows user to input and track their workout progress
-- User first must login in order to see their workout progress
+- User first must sign up in order to see their workout progress
 
 ## Technologies Used
 

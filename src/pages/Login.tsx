@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
+import { Tooltip } from "react-tooltip";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +25,14 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <button disabled={isLoading}>Login</button>
+      <button
+        data-tooltip-id="login-button-tooltip"
+        data-tooltip-content="Login"
+        disabled={isLoading}
+      >
+        Login
+      </button>
+      <Tooltip id="login-button-tooltip" />
       {error && <div className="error">{error}</div>}
     </form>
   );

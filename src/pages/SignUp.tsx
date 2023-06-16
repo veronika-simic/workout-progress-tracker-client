@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
+import { Tooltip } from "react-tooltip";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +25,8 @@ const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <button disabled={isLoading}>Sign up</button>
+      <button data-tooltip-id="signup-button-tooltip" data-tooltip-content="Sign up" disabled={isLoading}>Sign up</button>
+      <Tooltip id="signup-button-tooltip"/>
       {error && <div className="error">{error}</div>}
     </form>
   );

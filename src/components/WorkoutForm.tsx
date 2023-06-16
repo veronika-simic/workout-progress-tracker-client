@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { ActionType } from "../types/workoutAction";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { Tooltip } from "react-tooltip";
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext();
   const { userState } = useAuthContext();
@@ -15,9 +15,9 @@ const WorkoutForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(!userState.user) {
-      setError("You must be logged in")
-      return
+    if (!userState.user) {
+      setError("You must be logged in");
+      return;
     }
     const workout = { title, sets, reps, load };
 
@@ -53,7 +53,11 @@ const WorkoutForm = () => {
       <input
         id="title"
         type="text"
-        onChange={(e) => setTitle(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
+        onChange={(e) =>
+          setTitle(
+            e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+          )
+        }
         value={title}
         className={emptyFields.includes("title") ? "error" : ""}
       />
@@ -81,7 +85,14 @@ const WorkoutForm = () => {
         value={load}
         className={emptyFields.includes("load") ? "error" : ""}
       />
-      <button type="submit">Add workout</button>
+      <button
+        type="submit"
+        data-tooltip-id="add-workout-tooltip"
+        data-tooltip-content="Add workout"
+      >
+        Add workout
+      </button>
+      <Tooltip id="add-workout-tooltip"/>
       {error && <div className="error">{error}</div>}
     </form>
   );
