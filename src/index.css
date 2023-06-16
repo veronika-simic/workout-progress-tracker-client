@@ -9,6 +9,7 @@ body {
   background: #f1f1f1;
   margin: 0;
   font-family: Roboto;
+  box-sizing: border-box;
 }
 
 header {
@@ -89,7 +90,6 @@ input {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 
 form button {
@@ -118,6 +118,7 @@ input.error {
 nav {
   display: flex;
   align-items: center;
+  column-gap: 6rem;
 }
 
 nav a {

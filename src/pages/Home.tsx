@@ -7,15 +7,17 @@ import { ActionType } from "../types/workoutAction";
 import { useAuthContext } from "../hooks/useAuthContext";
 const Home = () => {
   const { workoutState, dispatch } = useWorkoutsContext();
-  const workouts = Array.from(workoutState.workouts);
-  const {userState } = useAuthContext()
-  
+  const workouts = workoutState.workouts
+    ? Array.from(workoutState.workouts)
+    : [];
+  const { userState } = useAuthContext();
+
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("/api/workouts",{
+      const response = await fetch("/api/workouts", {
         headers: {
-          'Authorization': "Bearer " + userState.user.token
-        }
+          Authorization: "Bearer " + userState.user.token,
+        },
       });
       const json = await response.json();
 
@@ -26,8 +28,6 @@ const Home = () => {
     if (userState.user) {
       fetchWorkouts();
     }
-
-   
   }, [dispatch, userState.user]);
 
   return (
@@ -35,9 +35,7 @@ const Home = () => {
       <div className="workouts">
         {workouts &&
           workouts.map((workout: Workout) => (
-            <>
-              <WorkoutDetails key={workout._id} workout={workout} />
-            </>
+            <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
 

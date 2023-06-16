@@ -16,13 +16,8 @@ const NavBar = () => {
         <nav>
           {userState.user && (
             <>
-              <Link to="/progress">
-                <h2>Progress</h2>
-              </Link>
-              <div>
-                <span>{userState.user.email}</span>
-                <button onClick={handleClick}>Log out</button>
-              </div>
+              <span>{userState.user.email}</span>
+              <button onClick={handleClick}>Log out</button>
             </>
           )}
           {!userState.user && (
