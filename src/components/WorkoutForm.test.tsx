@@ -29,7 +29,7 @@ test("renders and submits workout form", () => {
   });
   fireEvent.click(screen.getByText("Add workout"));
   expect(mockDispatch).toHaveBeenCalledWith({
-    type: ActionType.SetWorkouts,
+    type: ActionType.CreateWorkout,
     payload: expect.objectContaining({
       title: "Bench Press",
       sets: "3",

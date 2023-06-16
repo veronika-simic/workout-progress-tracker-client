@@ -42,7 +42,7 @@ const WorkoutForm = () => {
       setReps("");
       setLoad("");
       setEmptyFields([]);
-      dispatch({ type: ActionType.SetWorkouts, payload: json });
+      dispatch({ type: ActionType.CreateWorkout, payload: json });
     }
   };
 
@@ -53,7 +53,7 @@ const WorkoutForm = () => {
       <input
         id="title"
         type="text"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1))}
         value={title}
         className={emptyFields.includes("title") ? "error" : ""}
       />
