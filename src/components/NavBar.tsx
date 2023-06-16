@@ -13,15 +13,17 @@ const NavBar = () => {
         <Link to="/">
           <h1>Workout Tracker</h1>
         </Link>
-        <Link to="/progress">
-          <h2>Progress</h2>
-        </Link>
         <nav>
           {userState.user && (
-            <div>
-              <span>{userState.user.email}</span>
-              <button onClick={handleClick}>Log out</button>
-            </div>
+            <>
+              <Link to="/progress">
+                <h2>Progress</h2>
+              </Link>
+              <div>
+                <span>{userState.user.email}</span>
+                <button onClick={handleClick}>Log out</button>
+              </div>
+            </>
           )}
           {!userState.user && (
             <div>
