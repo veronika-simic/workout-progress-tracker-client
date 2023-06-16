@@ -113,3 +113,24 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+
+/* navbar */
+nav {
+  display:  flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 0.625rem;
+}
+
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 0.25rem;
+
+}
