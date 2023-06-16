@@ -3,6 +3,7 @@ import { User } from "./authState";
 export enum AuthActionType {
   Login = "LOGIN",
   SignUp = "SIGN_UP",
+  Logout = "LOG_OUT"
 }
 
 export interface Login {
@@ -15,4 +16,9 @@ export interface SignUp {
   payload: User;
 }
 
-export type AuthActions = Login | SignUp;
+export interface Logout {
+    type: AuthActionType.Logout;
+    payload: null
+}
+
+export type AuthActions = Login | SignUp | Logout;

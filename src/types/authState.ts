@@ -10,10 +10,5 @@ export interface User {
 }
 
 export const initialAuthState: UserState = {
-  user: {
-    _id: "",
-    email: "",
-    password: "",
-    token: "",
-  },
+  user: null
 };
