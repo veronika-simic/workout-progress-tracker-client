@@ -31,7 +31,6 @@
 - User can login by providing a valid email address and password
 - Password has to have at least 8 characters, which includes a number, uppercase letter and a special character
 - User can input workout by specifiying title, sets, reps and load
-- User can preview workout progress
 ## Screenshots
 
 
@@ -39,7 +38,7 @@
 
 In orded to run this project first clone this repository with following command:
 
-`git clone https://github.com/veronika-simic/workout-progress-tracker.git`
+`git clone https://github.com/veronika-simic/workout-progress-tracker-client.git`
 
 Install the dependencies with the following command
 
@@ -56,11 +55,11 @@ To see the project in browser visit:
 
 ## Usage
 
-- Track your monthly, quarterly or anual workout progress
+- Track your workout progress
 
 ## Project Status
 
-Project is: _in progress_
+Project is: _finished_
 
 ## Room for Improvement
 
