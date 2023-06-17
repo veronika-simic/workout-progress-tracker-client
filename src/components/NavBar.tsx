@@ -21,7 +21,7 @@ const NavBar = () => {
           {userState.user && (
             <>
               <span data-tooltip-id="user-name-tooltip" data-tooltip-content="User">{userState.user.email}</span>
-              <Tooltip id="user-name-tooltip"/>
+              <Tooltip id="user-name-tooltip"/> 
               <button data-tooltip-id="logout-tooltip" data-tooltip-content="Log out" onClick={handleClick}>Log out</button>
               <Tooltip id="logout-tooltip"/>
             </>

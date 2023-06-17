@@ -7,11 +7,10 @@ import { ActionType } from "../types/workoutAction";
 import { useAuthContext } from "../hooks/useAuthContext";
 const Home = () => {
   const { workoutState, dispatch } = useWorkoutsContext();
-  const workouts = workoutState.workouts
+  const workouts = workoutState
     ? Array.from(workoutState.workouts)
     : [];
   const { userState } = useAuthContext();
-
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch("/api/workouts", {
