@@ -11,22 +11,30 @@ const SignUp = () => {
     await signup(email, password);
   };
   return (
-    <form className="signup" onSubmit={handleSubmit}>
+    <form className="signup" onSubmit={handleSubmit} data-testid="signup-form">
       <h3>Sign up</h3>
-      <label>Email:</label>
+      <label htmlFor="email">Email:</label>
       <input
+        id="email"
         type="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
-      <label>Password</label>
+      <label htmlFor="password">Password</label>
       <input
+        id="password"
         type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <button data-tooltip-id="signup-button-tooltip" data-tooltip-content="Sign up" disabled={isLoading}>Sign up</button>
-      <Tooltip id="signup-button-tooltip"/>
+      <button
+        data-tooltip-id="signup-button-tooltip"
+        data-tooltip-content="Sign up"
+        disabled={isLoading}
+      >
+        Sign up
+      </button>
+      <Tooltip id="signup-button-tooltip" />
       {error && <div className="error">{error}</div>}
     </form>
   );

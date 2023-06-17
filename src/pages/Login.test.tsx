@@ -4,7 +4,7 @@ import { useLogin } from "../hooks/useLogin";
 
 jest.mock("../hooks/useLogin");
 
-describe("Login component", () => {
+describe("</Login>", () => {
   test("submits the form with correct email and password", async () => {
     
     const mockLogin = jest.fn();
