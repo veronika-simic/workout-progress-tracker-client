@@ -26,6 +26,8 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
       dispatch({ type: ActionType.DeleteWorkout, payload: json });
     }
   };
+  
+  const createdAtDate = workout.createdAt instanceof Date ? workout.createdAt : new Date();
 
   return (
     <div className="workout-details">
@@ -43,7 +45,7 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
         {workout.reps}
       </p>
       <p>
-        {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
+        {formatDistanceToNow(createdAtDate, { addSuffix: true })}
       </p>
 
       <span
