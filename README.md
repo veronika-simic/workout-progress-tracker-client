@@ -1,6 +1,7 @@
 # Project Name
 
 > Workout progress tracker application that allows user to track their workout progress
+> Project is avaliable at: https://workout-progress-tracker-client.onrender.com
 ## Table of Contents
 
 - [General Info](#general-information)
@@ -60,10 +61,6 @@ To see the project in browser visit:
 ## Project Status
 
 Project is: _finished_
-
-## Room for Improvement
-
-Room for improvement:
 
 ## Contact
 
